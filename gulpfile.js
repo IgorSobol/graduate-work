@@ -17,6 +17,7 @@ const gulp = require('gulp'),
 // Define reusable paths
 
 const path = {
+  html: 'html',
   scss: 'assets/scss',
   src_js: 'assets/js/src/',
   js: 'assets/js',
@@ -72,7 +73,8 @@ gulp.task('sass:minified', () => {
 
 // JS compiling and minification
 
-gulp.task('js', () => {
+// Expanded
+gulp.task('js:expanded', () => {
   return gulp.src(path.src_js + '/theme.js')
     .pipe(rollup({
       allowRealFiles: true,
@@ -82,11 +84,37 @@ gulp.task('js', () => {
         banner: `
         /**
          * Createx | Multipurpose Bootstrap Template
-         * Copyright 2022 Createx Studio
+         * Copyright 2021 Createx Studio
          * Theme core scripts
          *
          * @author Createx Studio
-         * @version 1.1.0
+         * @version 1.0.0
+         */
+        `
+      }
+    }))
+    .pipe(babel({
+      presets: [['@babel/env', {modules: false}]]
+    }))
+    .pipe(gulp.dest(path.js));
+});
+
+// Minified
+gulp.task('js:minified', () => {
+  return gulp.src(path.src_js + '/theme.js')
+    .pipe(rollup({
+      allowRealFiles: true,
+      input: './' + path.src_js + '/theme.js',
+      output: {
+        format: 'iife',
+        banner: `
+        /**
+         * Createx | Multipurpose Bootstrap Template
+         * Copyright 2021 Createx Studio
+         * Theme core scripts
+         *
+         * @author Createx Studio
+         * @version 1.0.0
          */
         `
       }
@@ -141,7 +169,7 @@ gulp.task('watch', () => {
   });
   gulp.watch(['./*.html', './**/*.html']).on('change', reload);
   gulp.watch(path.scss + '/**/*.scss', gulp.series('sass:minified'));
-  gulp.watch(path.src_js + '/**/*.js', gulp.series('js'));
+  gulp.watch(path.src_js + '/**/*.js', gulp.series('js:expanded', 'js:minified'));
 });
 
 
@@ -149,5 +177,5 @@ gulp.task('watch', () => {
 
 gulp.task(
   'default',
-  gulp.series('clean', 'vendor', gulp.parallel('js', 'sass:minified', 'sass:expanded'), 'watch')
+  gulp.series('clean', 'vendor', gulp.parallel('js:minified', 'js:expanded', 'sass:minified', 'sass:expanded'), 'watch')
 );

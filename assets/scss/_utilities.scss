@@ -7,7 +7,6 @@
 
 @import '../vendor/bootstrap/scss/functions';
 @import '../vendor/bootstrap/scss/variables';
-@import '../vendor/bootstrap/scss/maps';
 @import '../vendor/bootstrap/scss/mixins';
 @import '../vendor/bootstrap/scss/utilities';
 
@@ -19,10 +18,7 @@ $utilities: map-merge(
     'border-color': (
       property: border-color,
       class: border,
-      local-vars: (
-        'border-opacity': .4
-      ),
-      values: $utilities-border-colors
+      values: $border-colors
     ),
 
     // Background colors
@@ -129,10 +125,7 @@ $utilities: map-merge(
     'background-faded-color': (
       property: background-color,
       class: bg-faded,
-      local-vars: (
-        'bg-opacity': .2
-      ),
-      values: map-remove($utilities-bg-colors, 'black', 'white', 'body')
+      values: $theme-faded-colors
     ),
 
     // Background size
@@ -203,11 +196,8 @@ $utilities: map-merge(
     'color': (
       property: color,
       class: text,
-      local-vars: (
-        'text-opacity': 1
-      ),
       values: map-merge(
-        $utilities-text-colors,
+        $theme-colors,
         (
           'white': $white,
           'body': $body-color,

@@ -70,7 +70,7 @@ type SubRange = number | WrappedSubRange;
 interface Range {
     min: SubRange;
     max: SubRange;
-    [key: `${number}%`]: SubRange;
+    [key: string]: SubRange;
 }
 
 //region Pips
@@ -152,7 +152,6 @@ interface Behaviour {
     tap: boolean;
     drag: boolean;
     dragAll: boolean;
-    smoothSteps: boolean;
     fixed: boolean;
     snap: boolean;
     hover: boolean;
@@ -583,7 +582,7 @@ class Spectrum {
         const ordered: [WrappedSubRange, string][] = [];
 
         // Map the object keys to an array.
-        Object.keys(entry).forEach((index: keyof Range) => {
+        Object.keys(entry).forEach((index) => {
             ordered.push([asArray(entry[index]) as WrappedSubRange, index]);
         });
 
@@ -1127,7 +1126,6 @@ function testBehaviour(parsed: ParsedOptions, entry: unknown): void {
     const hover = entry.indexOf("hover") >= 0;
     const unconstrained = entry.indexOf("unconstrained") >= 0;
     const dragAll = entry.indexOf("drag-all") >= 0;
-    const smoothSteps = entry.indexOf("smooth-steps") >= 0;
 
     if (fixed) {
         if (parsed.handles !== 2) {
@@ -1146,7 +1144,6 @@ function testBehaviour(parsed: ParsedOptions, entry: unknown): void {
         tap: tap || snap,
         drag: drag,
         dragAll: dragAll,
-        smoothSteps: smoothSteps,
         fixed: fixed,
         snap: snap,
         hover: hover,
@@ -2084,16 +2081,6 @@ function scope(target: TargetElement, options: ParsedOptions, originalOptions: O
             }
         }
 
-        if (options.events.smoothSteps) {
-            data.handleNumbers.forEach(function (handleNumber) {
-                setHandle(handleNumber, scope_Locations[handleNumber], true, true, false, false);
-            });
-
-            data.handleNumbers.forEach(function (handleNumber: number) {
-                fireEvent("update", handleNumber);
-            });
-        }
-
         data.handleNumbers.forEach(function (handleNumber: number) {
             fireEvent("change", handleNumber);
             fireEvent("set", handleNumber);
@@ -2461,8 +2448,7 @@ function scope(target: TargetElement, options: ParsedOptions, originalOptions: O
         to: number,
         lookBackward: boolean,
         lookForward: boolean,
-        getValue: boolean,
-        smoothSteps?: boolean
+        getValue: boolean
     ): number | false {
         let distance;
 
@@ -2509,9 +2495,7 @@ function scope(target: TargetElement, options: ParsedOptions, originalOptions: O
             }
         }
 
-        if (!smoothSteps) {
-            to = scope_Spectrum.getStep(to);
-        }
+        to = scope_Spectrum.getStep(to);
 
         // Limit percentage to the 0 - 100 range
         to = limit(to);
@@ -2544,8 +2528,6 @@ function scope(target: TargetElement, options: ParsedOptions, originalOptions: O
         // Store first handle now, so we still have it in case handleNumbers is reversed
         const firstHandle = handleNumbers[0];
 
-        const smoothSteps = options.events.smoothSteps;
-
         let b = [!upward, upward];
         let f = [upward, !upward];
 
@@ -2567,8 +2549,7 @@ function scope(target: TargetElement, options: ParsedOptions, originalOptions: O
                     proposals[handleNumber] + proposal,
                     b[o],
                     f[o],
-                    false,
-                    smoothSteps
+                    false
                 );
 
                 // Stop if one of the handles can't move.
@@ -2590,8 +2571,7 @@ function scope(target: TargetElement, options: ParsedOptions, originalOptions: O
 
         // Step 2: Try to set the handles with the found percentage
         handleNumbers.forEach(function (handleNumber, o) {
-            state =
-                setHandle(handleNumber, locations[handleNumber] + proposal, b[o], f[o], false, smoothSteps) || state;
+            state = setHandle(handleNumber, locations[handleNumber] + proposal, b[o], f[o]) || state;
         });
 
         // Step 3: If a handle moved, fire events
@@ -2651,19 +2631,10 @@ function scope(target: TargetElement, options: ParsedOptions, originalOptions: O
         to: number | false,
         lookBackward: boolean,
         lookForward: boolean,
-        exactInput?: boolean,
-        smoothSteps?: boolean
+        exactInput?: boolean
     ): boolean {
         if (!exactInput) {
-            to = checkHandlePosition(
-                scope_Locations,
-                handleNumber,
-                <number>to,
-                lookBackward,
-                lookForward,
-                false,
-                smoothSteps
-            );
+            to = checkHandlePosition(scope_Locations, handleNumber, <number>to, lookBackward, lookForward, false);
         }
 
         if (to === false) {

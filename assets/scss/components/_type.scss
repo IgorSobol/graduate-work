@@ -59,7 +59,7 @@ h4, .h4, h5, .h5, h6, .h6 {
   &:hover {
     h1, h2, h3, h4, h5, h6,
     .h1, .h2, .h3, .h4, .h5, .h6 {
-      color: var(--#{$prefix}primary);
+      color: $primary;
     }
   }
 }
@@ -96,7 +96,7 @@ dt {
       family: $icons-font-family;
       weight: normal;
     }
-    color: var(--#{$prefix}primary);
+    color: $primary;
     line-height: 1;
     content: $blockquote-icon;
     @include font-size($blockquote-icon-size);

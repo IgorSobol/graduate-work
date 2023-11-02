@@ -1,12 +1,3 @@
-/**
- * Createx | Multipurpose Bootstrap Template
- * Copyright 2022 Createx Studio
- * Theme core scripts
- *
- * @author Createx Studio
- * @version 1.1.0
-*/
-
 import stickyNavbar from './components/sticky-navbar';
 import passwordVisibilityToggle from './components/password-visibility-toggle';
 import fileDropArea from './components/file-drop-area';

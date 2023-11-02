@@ -119,9 +119,6 @@ Path.prototype.animate = function animate(progress, opts, cb) {
         if (utils.isFunction(cb)) {
             cb();
         }
-    }).catch(function(err) {
-        console.error('Error in tweening:', err);
-        throw err;
     });
 };
 
@@ -162,7 +159,7 @@ Path.prototype._calculateTo = function _calculateTo(progress, easing) {
 
 Path.prototype._stopTween = function _stopTween() {
     if (this._tweenable !== null) {
-        this._tweenable.stop(true);
+        this._tweenable.stop();
         this._tweenable = null;
     }
 };

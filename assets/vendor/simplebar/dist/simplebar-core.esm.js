@@ -1,5 +1,5 @@
 /**
- * SimpleBar.js - v5.3.8
+ * SimpleBar.js - v5.3.6
  * Scrollbars, simpler.
  * https://grsmto.github.io/simplebar/
  *
@@ -7,24 +7,25 @@
  * Under MIT License
  */
 
-import 'core-js/modules/es.parse-int.js';
-import 'core-js/modules/es.object.assign.js';
-import 'core-js/modules/es.array.filter.js';
-import 'core-js/modules/es.object.to-string.js';
-import 'core-js/modules/es.array.iterator.js';
-import 'core-js/modules/es.string.iterator.js';
-import 'core-js/modules/es.weak-map.js';
-import 'core-js/modules/web.dom-collections.iterator.js';
+import 'core-js/modules/es.array.filter';
+import 'core-js/modules/es.array.for-each';
+import 'core-js/modules/es.array.iterator';
+import 'core-js/modules/es.object.assign';
+import 'core-js/modules/es.object.to-string';
+import 'core-js/modules/es.parse-int';
+import 'core-js/modules/es.string.iterator';
+import 'core-js/modules/es.weak-map';
+import 'core-js/modules/web.dom-collections.iterator';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
 import memoize from 'lodash.memoize';
 import { ResizeObserver } from '@juggle/resize-observer';
 import canUseDOM from 'can-use-dom';
-import 'core-js/modules/es.array.reduce.js';
-import 'core-js/modules/es.regexp.exec.js';
-import 'core-js/modules/es.string.match.js';
-import 'core-js/modules/es.function.name.js';
-import 'core-js/modules/es.string.replace.js';
+import 'core-js/modules/es.array.reduce';
+import 'core-js/modules/es.function.name';
+import 'core-js/modules/es.regexp.exec';
+import 'core-js/modules/es.string.match';
+import 'core-js/modules/es.string.replace';
 
 function getElementWindow(element) {
   if (!element || !element.ownerDocument || !element.ownerDocument.defaultView) {
@@ -74,7 +75,9 @@ function scrollbarWidth(el) {
   return cachedScrollbarWidth;
 }
 
-var SimpleBar = /*#__PURE__*/function () {
+var SimpleBar =
+/*#__PURE__*/
+function () {
   function SimpleBar(element, options) {
     var _this = this;
 
@@ -272,8 +275,8 @@ var SimpleBar = /*#__PURE__*/function () {
 
     this.el = element;
     this.minScrollbarWidth = 20;
-    this.options = Object.assign({}, SimpleBar.defaultOptions, options);
-    this.classNames = Object.assign({}, SimpleBar.defaultOptions.classNames, this.options.classNames);
+    this.options = Object.assign({}, SimpleBar.defaultOptions, {}, options);
+    this.classNames = Object.assign({}, SimpleBar.defaultOptions.classNames, {}, this.options.classNames);
     this.axis = {
       x: {
         scrollOffsetAttr: 'scrollLeft',

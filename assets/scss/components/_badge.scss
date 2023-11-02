@@ -30,6 +30,14 @@ a.badge {
   }
 }
 
+@each $color, $value in $theme-colors {
+  a.badge.bg-#{$color} {
+    &:hover {
+      background-color: darken($value, 10%) !important;
+    }
+  }
+}
+
 
 // Badge floating (absolute position)
 

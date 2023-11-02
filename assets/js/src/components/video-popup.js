@@ -1,6 +1,6 @@
 /**
- * Open YouTube video in lightbox
- * @requires https://github.com/sachinchoolur/lightGallery
+ * Open YouTube / Vimeo video in lightbox
+ * @requires https://github.com/sachinchoolur/lightgallery.js
 */
 
 const videoPopup = (() => {
@@ -10,9 +10,8 @@ const videoPopup = (() => {
     for (let i = 0; i < button.length; i++) {
       lightGallery(button[i], {
         selector: 'this',
-        plugins: [lgVideo],
-        licenseKey: 'D4194FDD-48924833-A54AECA3-D6F8E646',
         download: false,
+        videojs: true,
         youtubePlayerParams: {
           modestbranding: 1,
           showinfo: 0,

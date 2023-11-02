@@ -2,6 +2,8 @@
 // Reboot
 // --------------------------------------------------
 
+// Import Google Fonts (Inter)
+@import url($path-to-fonts);
 
 html * {
   @include font-smoothing;
@@ -22,11 +24,11 @@ body {
   flex-shrink: 0;
 }
 
-// Root
-:root {
-  --#{$prefix}gradient-from-color: #{$primary};
-  --#{$prefix}gradient-to-color: #30bcf9;
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+  html, body { height: auto; }
+  body { display: block; }
 }
+
 
 // Links
 a {
@@ -75,9 +77,4 @@ button:focus {
 // Remove highlight border color between thead, tbody and tfoot.
 .table > :not(:first-child) {
   border-top: 0;
-}
-
-// Override light border
-.border-light {
-  border-color: $border-light-color !important;
 }

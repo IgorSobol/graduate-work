@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Createx | Online Courses - Blog</title>
+    <title>Createx | E-Commerce - Blog</title>
 
     <!-- SEO Meta Tags-->
-    <meta name="description" content="Createx - Multipurpose Bootstrap Template">
-    <meta name="keywords" content="bootstrap, business, creative agency, construction, services, e-commerce, mobile app showcase, multipurpose, shop, ui kit, marketing, seo, landing, html5, css3, javascript, gallery, slider, touch, creative">
+    <meta name="description" content="Createx - Multipurpose Bootstrap Template and UI Kit">
+    <meta name="keywords" content="bootstrap, business, creative agency, construction, services, e-commerce, shopping cart, mobile app showcase, multipurpose, shop, ui kit, marketing, seo, landing, html5, css3, javascript, gallery, slider, touch, creative">
     <meta name="author" content="Createx Studio">
 
     <!-- Viewport-->
@@ -21,65 +21,11 @@
     <meta name="msapplication-TileColor" content="#766df4">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-
     <!-- Vendor Styles-->
-    <link rel="stylesheet" media="screen" href="../assets/vendor/simplebar/dist/simplebar.min.css"/>
+    <link rel="stylesheet" media="screen" href="../assets/vendor/tiny-slider/dist/tiny-slider.css"/>
 
     <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
-
-    <!-- Demo Specific Styles -->
-    <style>
-      :root {
-        --cx-primary: #ff3f3a;
-        --cx-primary-rgb: 255,63,58;
-        --cx-gradient-from-color: #ff3f3a;
-        --cx-gradient-to-color: #f75e05;
-        --cx-link-color: #ff3f3a;
-        --cx-link-hover-color: #ff0d07;
-      }
-      .btn-primary {
-        --cx-btn-bg: #ff3f3a;
-        --cx-btn-border-color: #ff3f3a;
-        --cx-btn-hover-bg: #ff1a14;
-        --cx-btn-active-bg: #ff1a14;
-        --cx-btn-hover-border-color: #ff1a14;
-        --cx-btn-active-border-color: #ff1a14;
-      }
-      .btn-outline-primary {
-        --cx-btn-color: #ff3f3a;
-        --cx-btn-border-color: rgba(255,63,58, .4);
-        --cx-btn-hover-bg: #ff3f3a;
-        --cx-btn-active-bg: #ff3f3a;
-        --cx-btn-hover-border-color: #ff3f3a;
-        --cx-btn-active-border-color: #ff3f3a;
-      }
-      .btn-translucent-primary {
-        --cx-btn-color: #ff3f3a;
-        --cx-btn-bg: rgba(255,63,58, .2);
-        --cx-btn-hover-bg: #ff3f3a;
-        --cx-btn-active-bg: #ff3f3a;
-      }
-      .btn-hover-shadow:hover.btn-primary,
-      .btn-hover-shadow:hover.btn-outline-primary,
-      .btn-hover-shadow:hover.btn-translucent-primary,
-      .btn-hover-shadow:hover.btn-gradient {
-        --cx-btn-hover-shadow-color: rgba(255,63,58, .92);
-      }
-      .btn-scroll-top {
-        --cx-btn-scroll-top-bg: #ff3f3a;
-        --cx-btn-scroll-top-hover-bg: #ff1a14;
-      }
-      .accordion {
-        --cx-accordion-active-color: #ff3f3a;
-        --cx-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3e%3cpath fill-rule='evenodd' d='M7.999.667c.368 0 .667.298.667.667v6h6c.368 0 .667.298.667.667s-.299.667-.667.667h-6v6c0 .368-.298.667-.667.667s-.667-.299-.667-.667v-6h-6C.964 8.667.666 8.369.666 8s.298-.667.667-.667h6v-6c0-.368.298-.667.667-.667z' fill='%23ff3f3a'/%3e%3c/svg%3e");
-        --cx-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3e%3cpath fill-rule='evenodd' d='M.666 8c0-.368.298-.667.667-.667v1.333C.964 8.666.666 8.368.666 8zm14 0v.667H1.333V7.333h13.333V8zm0 0v.667c.368 0 .667-.298.667-.667s-.299-.667-.667-.667V8z' fill='%23ff3f3a'/%3e%3c/svg%3e");
-      }
-    </style>
+    <link rel="stylesheet" media="screen" href="../assets/css/demo/ecommerce/theme.min.css">
 
     <!-- Page loading styles-->
     <style>
@@ -129,7 +75,7 @@
         height: 2.75rem;
         margin-bottom: .75rem;
         vertical-align: text-bottom;
-        background-color: #cfcfd1;
+        background-color: #cfcfd1; 
         border-radius: 50%;
         opacity: 0;
         -webkit-animation: spinner .75s linear infinite;
@@ -175,7 +121,9 @@
 
 
   <!-- Body-->
-  <body>
+  <!-- Add class "is-sidebar" when page has offcanvas sidebar on handheld devices -->
+  <body class="is-sidebar">
+
 
     <!-- Page loading spinner-->
     <div class="page-loading active">
@@ -184,613 +132,734 @@
       </div>
     </div>
 
-    <!-- Main content-->
+    <!-- Page wrapper for sticky footer -->
     <!-- Wraps everything except footer to push footer to the bottom of the page if there is little content -->
-    <main class="page-wrapper position-relative">
+    <main class="page-wrapper">
 
+      
+      <!-- Shopping cart offcanvas -->
+      <div id="cart" class="offcanvas offcanvas-end">
 
-      <!-- Sign in modal-->
-      <div class="modal fade" id="modal-signin" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content border-0">
+        <!-- Header -->
+        <div class="offcanvas-header align-items-center border-bottom">
+          <h2 class="h5 mb-0">Your cart (4)</h2>
+          <button class="btn-close me-n1" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
 
-            <!-- Sign in form -->
-            <div class="view show" id="modal-signin-view">
-              <div class="modal-header border-0 pb-0 px-md-5 px-4 d-block position-relative">
-                <h3 class="modal-title mt-4 mb-0 text-center">Sign in</h3>
-                <button type="button" class="btn-close position-absolute" style="top: 1.5rem; right: 1.5rem;" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- Body -->
+        <div class="offcanvas-body">
+          <!-- Item -->
+          <div class="d-flex align-items-start p-4 border-bottom mx-n4">
+            <a href="shop-single.html" style="min-width: 80px;">
+              <img src="../assets/img/ecommerce/cart/01.png" width="80" alt="Product thumb">
+            </a>
+            <div class="w-100 ps-3">
+              <div class="d-flex justify-content-between">
+                <div class="w-100 pe-2">
+                  <h3 class="fs-sm mb-3">
+                    <a href="shop-single.html" class="nav-link fw-bold">Basic hooded sweatshirt in pink</a>
+                  </h3>
+                  <ul class="list-unstyled fs-xs mt-n2 mb-2">
+                    <li class="mb-0"><span class="text-muted">Color:</span> Pink</li>
+                    <li class="mb-0"><span class="text-muted">Size:</span> S</li>
+                  </ul>
+                  <div class="d-flex align-items-center">
+                    <input type="number" class="form-control form-control-sm bg-light me-3" min="1" style="width: 4.5rem;" value="1">
+                    <div class="text-nowrap"><strong class="text-danger">$15.00</strong> <s class="fs-xs text-muted">$31.00</s></div>
+                  </div>
+                  <button class="btn btn-link btn-sm text-decoration-none px-0 pb-0">
+                    Move to
+                    <i class="ci-heart ms-1"></i>
+                  </button>
+                </div>
+                <div class="nav-muted me-n2">
+                  <a href="#" class="nav-link px-2 mt-n2" data-bs-toggle="tooltip" data-bs-placement="left" title="Remove"><i class="ci-delete"></i></a>
+                </div>
               </div>
-              <div class="modal-body px-md-5 px-4">
-                <p class="fs-sm text-muted text-center">Sign in to your account using email and password provided during registration.</p>
-                <form class="needs-validation" novalidate>
-                  <div class="mb-4">
-                    <label for="signin-email" class="form-label-lg">Email</label>
-                    <input type="email" class="form-control" id="signin-email" placeholder="Your email address" required>
-                  </div>
-                  <div class="mb-4">
-                    <label for="signin-password" class="form-label-lg">Password</label>
-                    <div class="password-toggle">
-                      <input class="form-control" type="password" id="signin-password" value="hidden@password">
-                      <label class="password-toggle-btn" aria-label="Show/hide password">
-                        <input class="password-toggle-check" type="checkbox">
-                        <span class="password-toggle-indicator"></span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="remember-me" checked>
-                      <label for="remember-me" class="form-check-label fs-base">Remember me</label>
-                    </div>
-                    <a href="#" class="fs-sm text-decoration-none">Forgot password?</a>
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-hover-shadow d-block w-100">Sign in</button>
-                  <p class="fs-sm pt-4 mb-0">
-                    Don't have an account?
-                    <a href="#" class="fw-bold text-decoration-none" data-view="#modal-signup-view">Sign up</a>
-                  </p>
-                </form>
-              </div>
-            </div>
-
-            <!-- Sign up form -->
-            <div class="view" id="modal-signup-view">
-              <div class="modal-header border-0 pb-0 px-md-5 px-4 d-block position-relative">
-                <h3 class="modal-title mt-4 mb-0 text-center">Sign up</h3>
-                <button type="button" class="btn-close position-absolute" style="top: 1.5rem; right: 1.5rem;" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body px-md-5 px-4">
-                <p class="fs-sm text-muted text-center">Sign in to your account using email and password provided during registration.</p>
-                <form class="needs-validation" novalidate>
-                  <div class="mb-4">
-                    <label for="signup-name" class="form-label-lg">Full name</label>
-                    <input type="text" class="form-control" id="signup-name" placeholder="Your full name" required>
-                  </div>
-                  <div class="mb-4">
-                    <label for="signup-email" class="form-label-lg">Email</label>
-                    <input type="email" class="form-control" id="signup-email" placeholder="Your email address" required>
-                  </div>
-                  <div class="mb-4">
-                    <label for="signup-password" class="form-label-lg">Password</label>
-                    <div class="password-toggle">
-                      <input class="form-control" type="password" id="signup-password" required>
-                      <label class="password-toggle-btn" aria-label="Show/hide password">
-                        <input class="password-toggle-check" type="checkbox">
-                        <span class="password-toggle-indicator"></span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="mb-4">
-                    <label for="signup-confirm-password" class="form-label-lg">Confirm password</label>
-                    <div class="password-toggle">
-                      <input class="form-control" type="password" id="signup-confirm-password" required>
-                      <label class="password-toggle-btn" aria-label="Show/hide password">
-                        <input class="password-toggle-check" type="checkbox">
-                        <span class="password-toggle-indicator"></span>
-                      </label>
-                    </div>
-                  </div>
-                  <button class="btn btn-primary btn-hover-shadow d-block w-100" type="submit">Sign up</button>
-                  <p class="fs-sm pt-4 mb-0">Already have an account?
-                    <a href="#" class="fw-bold text-decoration-none" data-view="#modal-signin-view">Sign in</a>
-                  </p>
-                </form>
-              </div>
-            </div>
-            <div class="modal-body text-center px-0 pt-2 pb-4">
-              <hr class="my-0">
-              <p class="fs-sm text-heading mb-3 pt-4">Or sign in with</p>
-              <a href="#" class="btn-social mx-1 mb-2" data-bs-toggle="tooltip" title="Facebook">
-                <i class="ci-facebook"></i>
-              </a>
-              <a href="#" class="btn-social mx-1 mb-2" data-bs-toggle="tooltip" title="Google">
-                <i class="ci-google"></i>
-              </a>
-              <a href="#" class="btn-social mx-1 mb-2" data-bs-toggle="tooltip" title="Twitter">
-                <i class="ci-twitter"></i>
-              </a>
-              <a href="#" class="btn-social mx-1 mb-2" data-bs-toggle="tooltip" title="LinkedIn">
-                <i class="ci-linkedin"></i>
-              </a>
             </div>
           </div>
+          <!-- Item -->
+          <div class="d-flex align-items-start p-4 border-bottom mx-n4">
+            <a href="shop-single.html" style="min-width: 80px;">
+              <img src="../assets/img/ecommerce/cart/02.png" width="80" alt="Product thumb">
+            </a>
+            <div class="w-100 ps-3">
+              <div class="d-flex justify-content-between">
+                <div class="w-100 pe-2">
+                  <h3 class="fs-sm mb-3">
+                    <a href="shop-single.html" class="nav-link fw-bold">Black and white sport cap</a>
+                  </h3>
+                  <div class="d-flex align-items-center">
+                    <input type="number" class="form-control form-control-sm bg-light me-3" min="1" style="width: 4.5rem;" value="1">
+                    <div class="text-nowrap"><strong>$18.15</strong></div>
+                  </div>
+                  <button class="btn btn-link btn-sm text-decoration-none px-0 pb-0">
+                    Move to
+                    <i class="ci-heart ms-1"></i>
+                  </button>
+                </div>
+                <div class="nav-muted me-n2">
+                  <a href="#" class="nav-link px-2 mt-n2" data-bs-toggle="tooltip" data-bs-placement="left" title="Remove"><i class="ci-delete"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Item -->
+          <div class="d-flex align-items-start p-4 border-bottom mx-n4">
+            <a href="shop-single.html" style="min-width: 80px;">
+              <img src="../assets/img/ecommerce/cart/03.png" width="80" alt="Product thumb">
+            </a>
+            <div class="w-100 ps-3">
+              <div class="d-flex justify-content-between">
+                <div class="w-100 pe-2">
+                  <h3 class="fs-sm mb-3">
+                    <a href="shop-single.html" class="nav-link fw-bold">Mid-rise slim cropped fit jeans</a>
+                  </h3>
+                  <ul class="list-unstyled fs-xs mt-n2 mb-2">
+                    <li class="mb-0"><span class="text-muted">Size:</span> M</li>
+                  </ul>
+                  <div class="d-flex align-items-center">
+                    <input type="number" class="form-control form-control-sm bg-light me-3" min="1" style="width: 4.5rem;" value="1">
+                    <div class="text-nowrap"><strong>$76.00</strong></div>
+                  </div>
+                  <button class="btn btn-link btn-sm text-decoration-none px-0 pb-0">
+                    Move to
+                    <i class="ci-heart ms-1"></i>
+                  </button>
+                </div>
+                <div class="nav-muted me-n2">
+                  <a href="#" class="nav-link px-2 mt-n2" data-bs-toggle="tooltip" data-bs-placement="left" title="Remove"><i class="ci-delete"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Item -->
+          <div class="d-flex align-items-start p-4 mx-n4">
+            <a href="shop-single.html" style="min-width: 80px;">
+              <img src="../assets/img/ecommerce/cart/04.png" width="80" alt="Product thumb">
+            </a>
+            <div class="w-100 ps-3">
+              <div class="d-flex justify-content-between">
+                <div class="w-100 pe-2">
+                  <h3 class="fs-sm mb-3">
+                    <a href="shop-single.html" class="nav-link fw-bold">Men fashion gray shoes</a>
+                  </h3>
+                  <ul class="list-unstyled fs-xs mt-n2 mb-2">
+                    <li class="mb-0"><span class="text-muted">Color:</span> Gray</li>
+                    <li class="mb-0"><span class="text-muted">Size:</span> 10.5</li>
+                  </ul>
+                  <div class="d-flex align-items-center">
+                    <input type="number" class="form-control form-control-sm bg-light me-3" min="1" style="width: 4.5rem;" value="1">
+                    <div class="text-nowrap"><strong>$84.00</strong></div>
+                  </div>
+                  <button class="btn btn-link btn-sm text-decoration-none px-0 pb-0">
+                    Move to
+                    <i class="ci-heart ms-1"></i>
+                  </button>
+                </div>
+                <div class="nav-muted me-n2">
+                  <a href="#" class="nav-link px-2 mt-n2" data-bs-toggle="tooltip" data-bs-placement="left" title="Remove"><i class="ci-delete"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="offcanvas-footer flex-column border-top">
+          <div class="d-flex align-items-center justify-content-between mb-3 pb-1">
+            <span class="text-muted me-2">Subtotal:</span>
+            <span class="h5 mb-0">$198.65</span>
+          </div>
+          <a href="checkout.html" class="btn btn-primary btn-lg d-block w-100">
+            <i class="ci-credit-card fs-lg mt-n1 me-1"></i>
+            Checkout
+          </a>
         </div>
       </div>
 
 
-      <!-- Navbar -->
-      <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
-      <header class="header navbar navbar-expand-lg navbar-light navbar-sticky">
-        <div class="container px-0 px-xl-3">
-          <a class="navbar-brand order-lg-1 me-lg-5 me-0 pe-lg-2" href="index.html">
-            <img src="../assets/img/online-courses/logo-dark.svg" alt="Createx Logo" width="130">
-          </a>
-          <div class="d-flex align-items-center order-lg-3">
-            <a class="btn btn-gradient btn-hover-shadow d-sm-inline-block d-none ms-4" href="contacts.html">Get consultation</a>
-            <a href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signin-view" class="btn-link d-lg-inline-block d-none ms-4 text-decoration-none text-nowrap">
-              <i class="ci-profile mt-n1 me-2 lead align-middle"></i>
+      <!-- Header (Topbar + Navbar) -->
+      <header class="header">
+
+        <!-- Topbar -->
+        <div class="topbar topbar-dark bg-dark">
+          <div class="container d-flex align-items-center px-0 px-xl-3">
+            <div class="me-3">
+              <a href="tel:4055550128" class="topbar-link d-md-inline-block d-none">
+                Available 24/7 at
+                <span class='fw-bold'>(405) 555-0128</span>
+              </a>
+              <a href="tel:4055550128" class="topbar-link d-md-none d-inline-block text-nowrap">
+                <i class="ci-iphone align-middle"></i>
+                (405) 555-0128
+              </a>
+            </div>
+            <a href="order-tracking.html" class="topbar-link ms-auto me-4 pe-sm-2 text-nowrap">
+              <i class="ci-map-pin-outline me-1 fs-base align-middle"></i>
+              Track <span class="d-none d-sm-inline">order</span>
+            </a>
+            <div class="dropdown">
+              <a href="#" class="topbar-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img src="../assets/img/ecommerce/flags/en.png" class="me-2" width="20" alt="English">
+                Eng / $
+              </a>
+              <div class="dropdown-menu dropdown-menu-end">
+                <a href="#" class="dropdown-item">
+                  <img src="../assets/img/ecommerce/flags/fr.png" class="me-2" width="20" alt="Français">
+                  Français / €
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img src="../assets/img/ecommerce/flags/de.png" class="me-2" width="20" alt="Deutsch">
+                  Deutsch / €
+                </a>
+                <a href="#" class="dropdown-item">
+                  <img src="../assets/img/ecommerce/flags/it.png" class="me-2" width="20" alt="Italiano">
+                  Italiano / €
+                </a>
+              </div>
+            </div>
+            <a href="#modal-signin" class="topbar-link d-lg-inline-block d-none ms-4 ps-1 text-decoration-none text-nowrap" data-bs-toggle="modal" data-view="#modal-signin-view">
+              <i class="ci-profile me-1 fs-base align-middle"></i>
               Sign in / up
             </a>
-            <button class="navbar-toggler ms-1 me-n3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse1" aria-expanded="false">
-              <span class="navbar-toggler-icon"></span>
-            </button>
           </div>
-          <nav class="collapse navbar-collapse order-lg-2" id="navbarCollapse1">
-            <ul class="navbar-nav me-auto text-nowrap">
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About us</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Courses</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="courses.html">Courses Grid</a></li>
-                  <li><a class="dropdown-item" href="course-single.html">Single Course</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Events</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="events-list.html">Events List</a></li>
-                  <li><a class="dropdown-item" href="events-grid.html">Events Grid</a></li>
-                  <li><a class="dropdown-item" href="event-single.html">Event Single</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Blog</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="blog.html">Blog grid</a></li>
-                  <li><a class="dropdown-item" href="blog-single.html">Single Post</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contacts.html">Contacts</a>
-              </li>
-              <li class="nav-item d-lg-none d-block">
-                <a href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signin-view" class="nav-link text-decoration-none">
-                  <i class="ci-profile mt-n1 me-2 lead align-middle"></i>
-                  Sign in / up
-                </a>
-              </li>
-              <li class="nav-item d-sm-none d-block">
-                <a class="btn btn-sm btn-gradient btn-hover-shadow m-3" href="contacts.html">Get consultation</a>
-              </li>
-            </ul>
-          </nav>
+        </div>
+
+        <!-- Navbar -->
+        <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page -->
+        <div class="navbar navbar-expand-lg navbar-light bg-light navbar-sticky" data-fixed-element>
+          <div class="container px-0 px-xl-3">
+            <a href="index.html" class="navbar-brand order-lg-1 me-0 pe-lg-3 me-lg-4">
+              <img src="../assets/img/ecommerce/logo.svg" alt="Createx Logo" width="130">
+            </a>
+            <!-- Search desktop -->
+            <div class="input-group ms-4 d-lg-block d-none order-lg-3" style="max-width: 21rem;">
+              <input class="form-control w-100 pe-5 rounded" type="text" placeholder="Search for products...">
+              <i class="ci-search lead position-absolute end-0 top-50 translate-middle-y me-3 zindex-5"></i>
+            </div>
+            <!-- Toolbar -->
+            <div class="d-flex align-items-center order-lg-3">
+              <ul class="nav nav-tools flex-nowrap">
+                <li class="nav-item d-lg-block d-none mb-0">
+                  <a href="account-wishlist.html" class="nav-tool">
+                    <i class="ci-heart nav-tool-icon"></i>
+                    <span class="nav-tool-label">2</span>
+                  </a>
+                </li>
+                <li class="divider-vertical mb-0 d-lg-block d-none"></li>
+                <li class="nav-item align-self-center mb-0">
+                  <a href="#" class="nav-tool pe-lg-0" data-bs-toggle="offcanvas" data-bs-target="#cart">
+                    <i class="ci-cart nav-tool-icon"></i>
+                    <span class="badge bg-success align-middle mt-n1 ms-2 px-2 py-1 fs-xs">4</span>
+                  </a>
+                </li>
+                <li class="divider-vertical mb-0 d-lg-none d-block"></li>
+                <li class="nav-item mb-0">
+                  <button class="navbar-toggler mt-n1 me-n3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-expanded="false">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- Navbar collapse -->
+            <nav class="collapse navbar-collapse order-lg-2" id="navbarCollapse">
+              <!-- Search mobile -->
+              <div class="input-group mb-0 d-lg-none d-block">
+                <input class="form-control w-100 ps-5 rounded-0 border-0" type="text" placeholder="Search for products...">
+                <i class="ci-search lead position-absolute start-0 top-50 translate-middle-y ms-3 zindex-5"></i>
+              </div>
+              <!-- Menu -->
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                  <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shop</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="shop-catalog.html" class="dropdown-item">Catalog with Filters</a></li>
+                    <li><a href="shop-single.html" class="dropdown-item">Single Product</a></li>
+                    <li><a href="checkout.html" class="dropdown-item">Checkout</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown mega-dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Megamenu</a>
+                  <div class="dropdown-menu">
+                    <div class="container pt-lg-1 pb-lg-3">
+                      <div class="row">
+                        <div class="col-lg-2 col-md-3 py-2">
+                          <ul class="list-unstyled">
+                            <li><a href="#" class="dropdown-item">New collection</a></li>
+                            <li><a href="#" class="dropdown-item">Best sellers</a></li>
+                            <li><a href="#" class="dropdown-item">Plus size</a></li>
+                            <li><a href="#" class="dropdown-item text-danger">Sale up to 70%</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-3 py-2">
+                          <h4 class="fs-sm text-uppercase pt-1 mb-2">Clothes</h4>
+                          <ul class="list-unstyled">
+                            <li><a href="#" class="dropdown-item">Coats</a></li>
+                            <li><a href="#" class="dropdown-item">Jackets</a></li>
+                            <li><a href="#" class="dropdown-item">Suits</a></li>
+                            <li><a href="#" class="dropdown-item">Dresses</a></li>
+                            <li><a href="#" class="dropdown-item">Cardigans &amp; sweaters</a></li>
+                            <li><a href="#" class="dropdown-item">Sweatshirts &amp; hoodies</a></li>
+                            <li><a href="#" class="dropdown-item">T-shirts &amp; tops</a></li>
+                            <li><a href="#" class="dropdown-item">Pants</a></li>
+                            <li><a href="#" class="dropdown-item">Jeans</a></li>
+                            <li><a href="#" class="dropdown-item">Shorts</a></li>
+                            <li><a href="#" class="dropdown-item">Skirts</a></li>
+                            <li><a href="#" class="dropdown-item">Lingerie &amp; nightwear</a></li>
+                            <li><a href="#" class="dropdown-item">Sportswear</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-3 py-2">
+                          <h4 class="fs-sm text-uppercase pt-1 mb-2">Shoes</h4>
+                          <ul class="list-unstyled">
+                            <li><a href="#" class="dropdown-item">Boots</a></li>
+                            <li><a href="#" class="dropdown-item">Flat shoes</a></li>
+                            <li><a href="#" class="dropdown-item">Heels</a></li>
+                            <li><a href="#" class="dropdown-item">Sandals</a></li>
+                            <li><a href="#" class="dropdown-item">Mules</a></li>
+                            <li><a href="#" class="dropdown-item">Sliders</a></li>
+                            <li><a href="#" class="dropdown-item">Slippers</a></li>
+                            <li><a href="#" class="dropdown-item">Sneakers</a></li>
+                            <li><a href="#" class="dropdown-item">Leather</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-2 col-md-3 py-2">
+                          <h4 class="fs-sm text-uppercase pt-1 mb-2">Accessories</h4>
+                          <ul class="list-unstyled">
+                            <li><a href="#" class="dropdown-item">Bags &amp; backpacks</a></li>
+                            <li><a href="#" class="dropdown-item">Hats &amp; scarves</a></li>
+                            <li><a href="#" class="dropdown-item">Hair accessories</a></li>
+                            <li><a href="#" class="dropdown-item">Belts</a></li>
+                            <li><a href="#" class="dropdown-item">Jewellery</a></li>
+                            <li><a href="#" class="dropdown-item">Watches</a></li>
+                            <li><a href="#" class="dropdown-item">Sunglasses</a></li>
+                            <li><a href="#" class="dropdown-item">Purses</a></li>
+                            <li><a href="#" class="dropdown-item">Socks &amp; tights</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-1 d-none d-lg-block py-2">
+                          <span class="divider-vertical h-100 mx-auto"></span>
+                        </div>
+                        <div class="col-lg-3 d-none d-lg-block py-2">
+                          <a href="#" class="d-block text-decoration-none pt-1">
+                            <img src="../assets/img/ecommerce/megamenu.jpg" class="d-block rounded mb-3" alt="Promo banner">
+                            <h5 class="fs-sm mb-3">Back to school. Sale up to 50%</h5>
+                            <div class="btn btn-outline-primary btn-sm">
+                              See offers
+                              <i class="ci-arrow-right ms-1"></i>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Account</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="account-profile.html" class="dropdown-item">Profile</a></li>
+                    <li><a href="account-orders.html" class="dropdown-item">My Orders</a></li>
+                    <li><a href="account-wishlist.html" class="dropdown-item">Wishlist</a></li>
+                    <li><a href="account-recently-viewed.html" class="dropdown-item">Recently Viewed</a></li>
+                    <li><a href="account-reviews.html" class="dropdown-item">My Reviews</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="blog.html" class="dropdown-item">Blog List</a></li>
+                    <li><a href="blog-single.html" class="dropdown-item">Single Post</a></li>
+                    <li><a href="contacts.html" class="dropdown-item">Contacts</a></li>
+                    <li><a href="order-tracking.html" class="dropdown-item">Order Tracking</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="account-profile.html" class="nav-link d-lg-none">
+                    <i class="ci-profile fs-base align-middle me-1"></i>
+                    Annette Black
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </header>
 
 
-      <!-- Courses grid-->
-      <section class="container mt-4 pt-lg-5 pt-4 pb-lg-6 pb-5">
-
-        <!-- Filterable grid container. IMPORTANT: it should wrap filters/sorters and target grid of items in order for plugin to work! -->
-        <div class="py-2" data-filter-grid>
-          <h3 class="h6 mb-2 text-uppercase text-center">Our blog</h3>
-          <h1 class="mb-lg-5 pb-md-2 text-center">Createx School Journal</h1>
-          <div class="row mb-sm-5 mb-2 mb-sm-4 pb-md-2">
-            <div class="col-lg-6">
-              <div data-simplebar data-simplebar-auto-hide="false">
-
-                <!-- Filter navs -->
-                <ul class="nav nav-tabs flex-nowrap mb-3 text-nowrap">
-                  <li class="nav-item mb-0">
-                    <span class="nav-link active" data-filter="all">
-                      All
-                    </span>
-                  </li>
-                  <li class="nav-item mb-0">
-                    <span class="nav-link" data-filter=".articles">
-                      <i class="ci-files me-2"></i>
-                      Articles
-                    </span>
-                  </li>
-                  <li class="nav-item mb-0">
-                    <span class="nav-link" data-filter=".videos">
-                      <i class="ci-play-outline me-2"></i>
-                      Videos
-                    </span>
-                  </li>
-                  <li class="nav-item mb-0">
-                    <span class="nav-link" data-filter=".podcasts">
-                      <i class="ci-mic me-2"></i>
-                      Podcasts
-                    </span>
-                  </li>
-                </ul>
+      <!-- Promo bar -->
+      <section class="tns-promo-bar bg-primary py-2">
+        <div class="container d-flex justify-content-center">
+          <div class="tns-carousel-wrapper tns-controls-inverse">
+            <div class="tns-carousel-inner" data-carousel-options = '{"mode": "gallery", "nav": false}'>
+              <div class="fs-xs text-light px-2">
+                <strong class="me-1">Up to 70% Off.</strong>
+                <a href="#" class="text-light">Shop our latest sale offers</a>
               </div>
-            </div>
-            <div class="col-lg-5 offset-lg-1 my-sm-0 my-4">
-              <div class="d-sm-flex">
-
-                <!-- Category select -->
-                <div class="flex-shrink-0 d-sm-flex align-items-center me-sm-4 mb-sm-0 mb-3 pe-md-2">
-                  <label class="mb-sm-0 me-2 pe-1 fw-bold text-nowrap" for="blog-category">Blog category</label>
-                  <select class="form-control form-select bg-light" id="blog-category">
-                    <option>All articles</option>
-                    <option>Marketing</option>
-                    <option>Development</option>
-                    <option>Design</option>
-                    <option>Management</option>
-                    <option>HR &amp; Recruiting</option>
-                  </select>
-                </div>
-
-                <!-- Search input -->
-                <div class="input-group mb-0">
-                  <input class="form-control pe-5 rounded" type="text" placeholder="Search the blog">
-                  <button class="btn btn-link me-3 px-0 position-absolute top-50 end-0 translate-middle-y zindex-5" type="button">
-                    <i class="ci-search mt-n1 text-muted"></i>
-                  </button>
-                </div>
+              <div class="fs-xs text-light px-2">
+                <strong class="me-1">Money back guarantee.</strong>
+                <a href="#" class="text-light">Learn more</a>
+              </div>
+              <div class="fs-xs text-light px-2">
+                <strong class="me-1">Friendly customer support.</strong>
+                <a href="#" class="text-light">Contact 24/7</a>
               </div>
             </div>
           </div>
-
-          <!-- Filterable grid of items -->
-          <div class="row">
-            <div class="grid-item podcasts col-lg-4 col-sm-6 mb-grid-gutter pb-md-4">
-              <article class="image-scale card h-100 border-0">
-                <a class="image-inner card-header mb-3 p-0 border-0 rounded" href="blog-single.html">
-                  <span class="badge bg-light badge-floating m-1">
-                    <i class="ci-mic align-middle me-1 fs-base"></i>
-                    Podcast
-                  </span>
-                  <img src="../assets/img/online-courses/blog/01.jpg" alt="Blog card image">
-                </a>
-                <div class="card-body p-0">
-                  <ul class="nav nav-muted mb-2">
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm" href="#">
-                        Marketing
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal" href="#">
-                        <i class="ci-calendar mt-n1 me-2 fs-base align-middle"></i>
-                        September 4, 2020
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <span class="fs-sm text-muted">
-                        <i class="ci-clock mt-n1 me-2 fs-base align-middle"></i>
-                        36 min
-                      </span>
-                    </li>
-                  </ul>
-                  <h3 class="h5 mb-2 nav-dark">
-                    <a class="nav-link" href="blog-single.html">What is traffic arbitrage and does it really make money?</a>
-                  </h3>
-                  <p class="mb-3">Pharetra, ullamcorper iaculis viverra parturient sed id sed. Convallis proin dignissim lacus, purus gravida...</p>
-                </div>
-                <div class="card-footer p-0 border-0">
-                  <div class="h6 mb-0">
-                    <a class="nav-link py-3" href="blog-single.html">Listen</a>
-                    <i class="ci-arrow-right text-primary align-middle h5 mb-0 ms-2"></i>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="grid-item articles col-lg-4 col-sm-6 mb-grid-gutter pb-md-4">
-              <article class="image-scale card h-100 border-0">
-                <a class="image-inner card-header mb-3 p-0 border-0 rounded" href="blog-single.html">
-                  <span class="badge bg-light badge-floating m-1">
-                    <i class="ci-files align-middle me-1 fs-base"></i>
-                    Article
-                  </span>
-                  <img src="../assets/img/online-courses/blog/04.jpg" alt="Blog card image">
-                </a>
-                <div class="card-body p-0">
-                  <ul class="nav nav-muted mb-2">
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm" href="#">
-                        Development
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal" href="#">
-                        <i class="ci-calendar mt-n1 me-2 fs-base align-middle"></i>
-                        September 1, 2020
-                      </a>
-                    </li>
-                  </ul>
-                  <h3 class="h5 mb-2 nav-dark">
-                    <a class="nav-link" href="blog-single.html">How to choose the first programming language for a beginner</a>
-                  </h3>
-                  <p class="mb-3">Turpis sed at magna laoreet gravida consequat tortor placerat. Gravida vitae aliquet enim egestas dui...</p>
-                </div>
-                <div class="card-footer p-0 border-0">
-                  <div class="h6 mb-0">
-                    <a class="nav-link py-3" href="blog-single.html">Read</a>
-                    <i class="ci-arrow-right text-primary align-middle h5 mb-0 ms-2"></i>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="grid-item videos col-lg-4 col-sm-6 mb-grid-gutter pb-md-4">
-              <article class="image-scale card h-100 border-0">
-                <a class="image-inner card-header mb-3 p-0 border-0 rounded" href="blog-single.html">
-                  <span class="badge bg-light badge-floating m-1">
-                    <i class="ci-play-outline align-middle me-1 fs-base"></i>
-                    Video
-                  </span>
-                  <img src="../assets/img/online-courses/blog/03.jpg" alt="Blog card image">
-                </a>
-                <div class="card-body p-0">
-                  <ul class="nav nav-muted mb-2">
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm" href="#">
-                        Design
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal" href="#">
-                        <i class="ci-calendar mt-n1 me-2 fs-base align-middle"></i>
-                        August 8, 2020
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <span class="fs-sm text-muted">
-                        <i class="ci-clock mt-n1 me-2 fs-base align-middle"></i>
-                        40 min
-                      </span>
-                    </li>
-                  </ul>
-                  <h3 class="h5 mb-2 nav-dark">
-                    <a class="nav-link" href="blog-single.html">Should you choose a creative profession if you are attracted to creativity?</a>
-                  </h3>
-                  <p class="mb-3">Curabitur nisl tincidunt eros venenatis vestibulum ac placerat. Tortor, viverra sed vulputate ultrices...</p>
-                </div>
-                <div class="card-footer p-0 border-0">
-                  <div class="h6 mb-0">
-                    <a class="nav-link py-3" href="blog-single.html">Watch</a>
-                    <i class="ci-arrow-right text-primary align-middle h5 mb-0 ms-2"></i>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="grid-item videos col-lg-4 col-sm-6 mb-grid-gutter pb-md-4">
-              <article class="image-scale card h-100 border-0">
-                <a class="image-inner card-header mb-3 p-0 border-0 rounded" href="blog-single.html">
-                  <span class="badge bg-light badge-floating m-1">
-                    <i class="ci-play-outline align-middle me-1 fs-base"></i>
-                    Video
-                  </span>
-                  <img src="../assets/img/online-courses/blog/02.jpg" alt="Blog card image">
-                </a>
-                <div class="card-body p-0">
-                  <ul class="nav nav-muted mb-2">
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm" href="#">
-                        Management
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal" href="#">
-                        <i class="ci-calendar mt-n1 me-2 fs-base align-middle"></i>
-                        August 2, 2020
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal" href="#">
-                        <i class="ci-clock mt-n1 me-2 fs-base align-middle"></i>
-                        45 min
-                      </a>
-                    </li>
-                  </ul>
-                  <h3 class="h5 mb-2 nav-dark">
-                    <a class="nav-link" href="blog-single.html">What to do and who to talk to if you want to get feedback on the product</a>
-                  </h3>
-                  <p class="mb-3">Consectetur adipisicing elit. Ipsum quia sapiente debitis, veritatis saepe sint veniam consectetur quod recusandae ex!</p>
-                </div>
-                <div class="card-footer p-0 border-0">
-                  <div class="h6 mb-0">
-                    <a class="nav-link py-3" href="blog-single.html">Watch</a>
-                    <i class="ci-arrow-right text-primary align-middle h5 mb-0 ms-2"></i>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="grid-item articles col-lg-8 mb-grid-gutter pb-md-4">
-              <article class="image-scale card h-100 border-0">
-                <a class="image-inner card-header mb-3 p-0 border-0 rounded" href="blog-single.html">
-                  <span class="badge bg-light badge-floating m-1">
-                    <i class="ci-files align-middle me-1 fs-base"></i>
-                    Article
-                  </span>
-                  <img src="../assets/img/online-courses/blog/lg.jpg" alt="Blog card image">
-                </a>
-                <div class="card-body p-0">
-                  <ul class="nav nav-muted mb-2">
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm" href="#">
-                        HR &amp; Recruiting
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal" href="#">
-                        <i class="ci-calendar mt-n1 me-2 fs-base align-middle"></i>
-                        August 3, 2020
-                      </a>
-                    </li>
-                  </ul>
-                  <h3 class="h5 mb-2 nav-dark">
-                    <a class="nav-link" href="blog-single.html">HR statistics: job search,  interviews, hiring and recruiting</a>
-                  </h3>
-                  <p class="mb-3">Massa, lectus nibh consectetur aliquet nunc risus aenean. Leo hac netus bibendum diam adipiscing aenean nisl. Molestie nullam ante mattis ac sit vitae pellentesque mi etiam. Morbi commodo tempor, massa vivamus. A molestie id semper fermentum pretium...</p>
-                </div>
-                <div class="card-footer p-0 border-0">
-                  <div class="h6 mb-0">
-                    <a class="nav-link py-3" href="blog-single.html">Read</a>
-                    <i class="ci-arrow-right text-primary align-middle h5 mb-0 ms-2"></i>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="grid-item podcasts col-lg-4 col-sm-6 mb-grid-gutter pb-md-4">
-              <article class="image-scale card h-100 border-0">
-                <a class="image-inner card-header mb-3 p-0 border-0 rounded" href="blog-single.html">
-                  <span class="badge bg-light badge-floating m-1">
-                    <i class="ci-mic align-middle me-1 fs-base"></i>
-                    Podcast
-                  </span>
-                  <img src="../assets/img/online-courses/blog/05.jpg" alt="Blog card image">
-                </a>
-                <div class="card-body p-0">
-                  <ul class="nav nav-muted mb-2">
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm" href="#">
-                        Design
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal" href="#">
-                        <i class="ci-calendar mt-n1 me-2 fs-base align-middle"></i>
-                        July 28, 2020
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal" href="#">
-                        <i class="ci-clock mt-n1 me-2 fs-base align-middle"></i>
-                        36 min
-                      </a>
-                    </li>
-                  </ul>
-                  <h3 class="h5 mb-2 nav-dark">
-                    <a class="nav-link" href="blog-single.html">What are color profiles and how they work in graphic design</a>
-                  </h3>
-                  <p class="mb-3">Aliquam vulputate hendrerit quam sollicitudin urna enim viverra gravida. Consectetur urna arcu eleifend...</p>
-                </div>
-                <div class="card-footer p-0 border-0">
-                  <div class="h6 mb-0">
-                    <a class="nav-link py-3" href="blog-single.html">Listen</a>
-                    <i class="ci-arrow-right text-primary align-middle h5 mb-0 ms-2"></i>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="grid-item videos col-lg-4 col-sm-6 mb-grid-gutter pb-md-4">
-              <article class="image-scale card h-100 border-0">
-                <a class="image-inner card-header mb-3 p-0 border-0 rounded" href="blog-single.html">
-                  <span class="badge bg-light badge-floating m-1">
-                    <i class="ci-play-outline align-middle me-1 fs-base"></i>
-                    Video
-                  </span>
-                  <img src="../assets/img/online-courses/blog/06.jpg" alt="Blog card image">
-                </a>
-                <div class="card-body p-0">
-                  <ul class="nav nav-muted mb-2">
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm" href="#">
-                        Management
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal" href="#">
-                        <i class="ci-calendar mt-n1 me-2 fs-base align-middle"></i>
-                        July 15, 2020
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <span class="fs-sm text-muted">
-                        <i class="ci-clock mt-n1 me-2 fs-base align-middle"></i>
-                        45 min
-                      </span>
-                    </li>
-                  </ul>
-                  <h3 class="h5 mb-2 nav-dark">
-                    <a class="nav-link" href="blog-single.html">Startup: how to build a team that will live longer than a year</a>
-                  </h3>
-                  <p class="mb-3">Nisi, massa ut sit faucibus et diam. Faucibus at malesuada at justo scelerisque in nisi, urna...</p>
-                </div>
-                <div class="card-footer p-0 border-0">
-                  <div class="h6 mb-0">
-                    <a class="nav-link py-3" href="blog-single.html">Watch</a>
-                    <i class="ci-arrow-right text-primary align-middle h5 mb-0 ms-2"></i>
-                  </div>
-                </div>
-              </article>
-            </div>
-            <div class="grid-item articles col-lg-4 col-sm-6 mb-grid-gutter pb-md-4">
-              <article class="image-scale card h-100 border-0">
-                <a class="image-inner card-header mb-3 p-0 border-0 rounded" href="blog-single.html">
-                  <span class="badge bg-light badge-floating m-1">
-                    <i class="ci-play-outline align-middle me-1 fs-base"></i>
-                    Article
-                  </span>
-                  <img src="../assets/img/online-courses/blog/07.jpg" alt="Blog card image">
-                </a>
-                <div class="card-body p-0">
-                  <ul class="nav nav-muted mb-2">
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm" href="#">
-                        Marketing
-                      </a>
-                      <span class="text-border px-1">|</span>
-                    </li>
-                    <li class="nav-item me-2">
-                      <a class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal" href="#">
-                        <i class="ci-calendar mt-n1 me-2 fs-base align-middle"></i>
-                        July 9, 2020
-                      </a>
-                    </li>
-                  </ul>
-                  <h3 class="h5 mb-2 nav-dark">
-                    <a class="nav-link" href="blog-single.html">How to get customers to love your business from the start</a>
-                  </h3>
-                  <p class="mb-3">Malesuada in augue mi feugiat morbi a aliquet enim. Elementum lacus, pellentesque etiam arcu tristique ac...</p>
-                </div>
-                <div class="card-footer p-0 border-0">
-                  <div class="h6 mb-0">
-                    <a class="nav-link py-3" href="blog-single.html">Read</a>
-                    <i class="ci-arrow-right text-primary align-middle h5 mb-0 ms-2"></i>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-        <div class="mt-lg-5 mt-sm-3 text-center">
-          <button class="btn btn-lg btn-link load-more-btn p-0 text-decoration-none" type="button">
-            <i class="ci-arrow-convert me-3"></i>
-            Load more
-          </button>
         </div>
       </section>
 
 
-      <!-- Subscribe -->
-      <section class="bg-secondary">
-        <div class="container pb-md-0 pb-5">
-          <div class="row align-items-center">
-            <div class="col-lg-5 col-md-6 mb-md-0 mb-5">
-              <img src="../assets/img/online-courses/blog/illustration.svg" alt="Illustration">
-            </div>
-            <div class="col-md-6 offset-lg-1">
-              <h2 class="mb-md-5">Want to get the best articles weekly? Subscribe to our newsletter!</h2>
-              <form class="needs-validation" novalidate>
-                <div class="input-group mb-4">
-                  <input class="form-control rounded bg-light" type="email" placeholder="Your working email" required>
-                  <div class="input-group-append">
-                    <button class="btn btn-gradient btn-hover-shadow ms-md-4 ms-sm-3 ms-2 rounded" type="submit">Subscribe</button>
+      <!-- Breadcrumb -->
+      <nav class="bg-secondary mb-3" aria-label="breadcrumb">
+        <div class="container">
+          <ol class="breadcrumb breadcrumb-alt mb-0">
+            <li class="breadcrumb-item">
+              <a href="index.html"><i class="ci-home"></i></a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Fasion blog</li>
+          </ol>
+        </div>
+      </nav>
+
+
+      <!-- Page content -->
+      <section class="container pt-3 pt-md-4 pb-3 pb-sm-4 pb-lg-5 mb-4">
+        <div class="row pb-2 pb-md-3">
+
+          <!-- List of posts -->
+          <div class="col-lg-8">
+            <h1 class="mb-4 pb-1 pb-md-3">Fashion blog</h1>
+
+            <!-- Post -->
+            <article class="image-scale card border-0 mb-5 pb-md-2">
+              <a href="blog-single.html" class="image-inner card-header mb-3 p-0 border-0 rounded position-relative">
+                <img src="../assets/img/ecommerce/blog/01.jpg" alt="Image">
+              </a>
+              <div class="card-body p-0">
+                <ul class="nav nav-muted mb-2 pb-1">
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      Fashion
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      November 24, 2020
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      <i class="ci-chat mt-n1 me-2 fs-base align-middle"></i>
+                      No comments
+                    </a>
+                  </li>
+                </ul>
+                <h3 class="h5 mb-2 nav-dark">
+                  <a href="blog-single.html" class="nav-link">Bag Trends for Summer 2020</a>
+                </h3>
+                <p class="mb-0">Vulputate vitae pellentesque scelerisque luctus consequat mattis pellentesque dui odio. Interdum aenean sit viverra amet,malesuada ornare sed gravida rhoncus, congue. Purus auctor nullam diam quis est hendrerit ac euismod...</p>
+              </div>
+            </article>
+
+            <!-- Post -->
+            <article class="image-scale card border-0 mb-5 pb-md-2">
+              <a href="blog-single.html" class="image-inner card-header mb-3 p-0 border-0 rounded position-relative">
+                <img src="../assets/img/ecommerce/blog/02.jpg" alt="Image">
+              </a>
+              <div class="card-body p-0">
+                <ul class="nav nav-muted mb-2 pb-1">
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      Celebrity style
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      November 5, 2020
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      <i class="ci-chat mt-n1 me-2 fs-base align-middle"></i>
+                      No comments
+                    </a>
+                  </li>
+                </ul>
+                <h3 class="h5 mb-2 nav-dark">
+                  <a href="blog-single.html" class="nav-link">Wardrobe Essentials Everyone Should Own Today</a>
+                </h3>
+                <p class="mb-0">Mauris tincidunt sollicitudin tristique odio eget volutpat. Fringilla viverra amet, mi interdum blandit. Tellus sed morbi massa quis sed. Faucibus tincidunt magna enim ultricies fringilla at rhoncus, hac...</p>
+              </div>
+            </article>
+
+            <!-- Post -->
+            <article class="image-scale card border-0 mb-5 pb-md-2">
+              <a href="blog-single.html" class="image-inner card-header mb-3 p-0 border-0 rounded position-relative">
+                <img src="../assets/img/ecommerce/blog/03.jpg" alt="Image">
+              </a>
+              <div class="card-body p-0">
+                <ul class="nav nav-muted mb-2 pb-1">
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      Lifestyle
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      October 16, 2020
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      <i class="ci-chat mt-n1 me-2 fs-base align-middle"></i>
+                      4 comments
+                    </a>
+                  </li>
+                </ul>
+                <h3 class="h5 mb-2 nav-dark">
+                  <a href="blog-single.html" class="nav-link">Top 10 of This Season’s Hottest Sneakers</a>
+                </h3>
+                <p class="mb-0">Sollicitudin et nec congue magna quis commodo quis luctus risus. Dolor, dignissim semper faucibus quisque massa ut enim. Turpis viverra mattis semper pellentesque facilisis. Ut id eget sagittis lectus...</p>
+              </div>
+            </article>
+
+            <!-- Post -->
+            <article class="image-scale card border-0 mb-5">
+              <a href="blog-single.html" class="image-inner card-header mb-3 p-0 border-0 rounded position-relative">
+                <img src="../assets/img/ecommerce/blog/04.jpg" alt="Image">
+              </a>
+              <div class="card-body p-0">
+                <ul class="nav nav-muted mb-2 pb-1">
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      Fashion
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      October 2, 2020
+                    </a>
+                    <span class="text-border px-1">|</span>
+                  </li>
+                  <li class="nav-item me-2">
+                    <a href="#" class="nav-link d-inline-block me-2 p-0 fs-sm fw-normal">
+                      <i class="ci-chat mt-n1 me-2 fs-base align-middle"></i>
+                      2 comments
+                    </a>
+                  </li>
+                </ul>
+                <h3 class="h5 mb-2 nav-dark">
+                  <a href="blog-single.html" class="nav-link">Modern Accessories 2020: Why Simple Isn't Easy</a>
+                </h3>
+                <p class="mb-0">Tellus sed morbi massa quis sed. Faucibus tincidunt magna enim ultricies fringilla at rhoncus, hac. Sollicitudin et nec congue magna quis commodo quis luctus risus. Dolor, dignissim semper faucibus quisque massa ut enim...</p>
+              </div>
+            </article>
+
+            <!-- Pagination -->
+            <nav class="ms-n2 mt-n3 mt-md-0" aria-label="Pagination">
+              <ul class="pagination mb-0">
+                <li class="page-item d-sm-none">
+                  <span class="page-link page-link-static">1 / 4</span>
+                </li>
+                <li class="page-item active d-none d-sm-block" aria-current="page">
+                  <span class="page-link">1
+                    <span class="visually-hidden">(current)</span>
+                  </span>
+                </li>
+                <li class="page-item d-none d-sm-block">
+                  <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item d-none d-sm-block">
+                  <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item d-none d-sm-block">
+                  <a class="page-link" href="#">4</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    <i class="ci-arrow-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+
+          <!-- Sidebar -->
+          <aside class="col-lg-4 ps-lg-5">
+            <div id="blog-sidebar" class="offcanvas offcanvas-collapse offcanvas-end">
+              <div class="offcanvas-header align-items-center border-bottom mb-3">
+                <h2 class="h5 mb-0">Sidebar</h2>
+                <button class="btn-close me-n1" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body pt-3 pb-1 pt-lg-0">
+
+                <!-- Search -->
+                <div class="widget border-bottom pb-2 mb-4">
+                  <div class="input-group mb-4">
+                    <input type="text" class="form-control pe-5 rounded" placeholder="Search the blog">
+                    <i class="ci-search position-absolute end-0 top-50 translate-middle-y me-3 fs-lg zindex-5"></i>
                   </div>
                 </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="ex-check-1" checked>
-                  <label class="form-check-label fs-base" for="ex-check-1">I agree to receive communications from Createx Online School</label>
+
+                <!-- Categories -->
+                <div class="widget widget-categories border-bottom pt-1 pb-4 mb-4">
+                  <h3 class="h4">Categories</h3>
+                  <ul class="nav nav-dark">
+                    <li>
+                      <a class="nav-link" href="#">
+                        <span>All</span>
+                        <span class="ps-2 fw-normal text-muted">22</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="#">
+                        <span>Fashion</span>
+                        <span class="ps-2 fw-normal text-muted">3</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="#">
+                        <span>Designers</span>
+                        <span class="ps-2 fw-normal text-muted">7</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="#">
+                        <span>Lifestyle</span>
+                        <span class="ps-2 fw-normal text-muted">4</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="#">
+                        <span>Celebrity style</span>
+                        <span class="ps-2 fw-normal text-muted">9</span>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-              </form>
+
+                <!-- Featured posts -->
+                <div class="widget widget-categories border-bottom pt-1 pb-3 mb-4">
+                  <h3 class="h4">Featured posts</h3>
+                  <ul class="list-unstyled">
+                    <!-- Item -->
+                    <li class="image-scale d-flex align-items-start mb-4">
+                      <a href="blog-single.html" class="flex-shrink-0 image-inner rounded me-3" style="width: 100px;">
+                        <img src="../assets/img/ecommerce/blog/widget/01.jpg" alt="Image">
+                      </a>
+                      <div class="ps-1">
+                        <span class="d-block mb-1 fs-sm text-muted">
+                          <i class="ci-clock fs-base align-middle mt-n1 me-2"></i>
+                          July 5, 2020
+                        </span>
+                        <h4 class="h6 mb-1 nav-dark">
+                          <a href="blog-single.html" class="nav-link">14 Items From End-of-Spring Sales Are Sure to Spark Joy</a>
+                        </h4>
+                      </div>
+                    </li>
+                    <!-- Item -->
+                    <li class="image-scale d-flex align-items-start mb-4">
+                      <a href="blog-single.html" class="flex-shrink-0 image-inner rounded me-3" style="width: 100px;">
+                        <img src="../assets/img/ecommerce/blog/widget/02.jpg" alt="Image">
+                      </a>
+                      <div class="ps-1">
+                        <span class="d-block mb-1 fs-sm text-muted">
+                          <i class="ci-clock fs-base align-middle mt-n1 me-2"></i>
+                          April 9, 2020
+                        </span>
+                        <h4 class="h6 mb-1 nav-dark">
+                          <a href="blog-single.html" class="nav-link">Best Fashion Instagrams of the Week</a>
+                        </h4>
+                      </div>
+                    </li>
+                    <!-- Item -->
+                    <li class="image-scale d-flex align-items-start mb-4">
+                      <a href="blog-single.html" class="flex-shrink-0 image-inner rounded me-3" style="width: 100px;">
+                        <img src="../assets/img/ecommerce/blog/widget/03.jpg" alt="Image">
+                      </a>
+                      <div class="ps-1">
+                        <span class="d-block mb-1 fs-sm text-muted">
+                          <i class="ci-clock fs-base align-middle mt-n1 me-2"></i>
+                          March 12, 2020
+                        </span>
+                        <h4 class="h6 mb-1 nav-dark">
+                          <a href="blog-single.html" class="nav-link">Top 10 Looks from the Venice Film Festival</a>
+                        </h4>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Tags -->
+                <div class="widget pt-1 pb-2 mb-4">
+                  <h3 class="h4">Tags</h3>
+                  <a href="#" class="btn-tag me-2 mb-2">#trends</a>
+                  <a href="#" class="btn-tag me-2 mb-2">#inspiration</a>
+                  <a href="#" class="btn-tag me-2 mb-2">#designers</a>
+                  <a href="#" class="btn-tag me-2 mb-2">#kidsfashion</a>
+                  <a href="#" class="btn-tag me-2 mb-2">#streetstyle</a>
+                  <a href="#" class="btn-tag me-2 mb-2">#models</a>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+
+      <!-- Subscription CTA -->
+      <section class="bg-secondary py-5">
+        <div class="container pt-2 pt-md-3 pb-3">
+          <div class="row align-items-center">
+            <form class="col-md-6 col-xl-5 needs-validation" novalidate>
+              <h2 class="h1 mb-3">Subscribe for updates</h2>
+              <p class="text-muted fs-lg pb-3 mb-4">Subscribe for exclusive early sale access and new arrivals.</p>
+              <div class="mb-2">
+                <div class="btn-control form-check-inline">
+                  <input type="checkbox" class="btn-control-input" id="s-women" checked>
+                  <label for="s-women" class="btn-control-label">Women</label>
+                </div>
+                <div class="btn-control form-check-inline">
+                  <input type="checkbox" class="btn-control-input" id="s-men">
+                  <label for="s-men" class="btn-control-label">Men</label>
+                </div>
+                <div class="btn-control form-check-inline">
+                  <input type="checkbox" class="btn-control-input" id="s-girls">
+                  <label for="s-girls" class="btn-control-label">Girls</label>
+                </div>
+                <div class="btn-control form-check-inline">
+                  <input type="checkbox" class="btn-control-input" id="s-boys">
+                  <label for="s-boys" class="btn-control-label">Boys</label>
+                </div>
+              </div>
+              <div class="mb-4 pt-4">
+                <label for="s-email" class="form-label-lg">Email</label>
+                <div class="input-group input-group-lg">
+                  <input type="email" id="s-email" class="form-control" placeholder="Your email address" required>
+                  <button type="submit" class="btn btn-primary px-4">Subscribe</button>
+                </div>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="s-agree" class="form-check-input">
+                <label for="s-agree" class="form-check-label fs-base">I agree to receive communications from Createx Store.</label>
+              </div>
+            </form>
+            <div class="col-md-6 col-xl-7 d-none d-md-block">
+              <div class="ms-auto" style="max-width: 459px;">
+                <img src="../assets/img/ecommerce/subscribe-illustration.png" class="d-block" alt="Illustration">
+              </div>
             </div>
           </div>
         </div>
@@ -800,43 +869,19 @@
 
     <!-- Footer -->
     <footer class="footer pt-sm-5 pt-4 bg-dark">
-      <div class="container py-3">
-        <div class="row">
-          <div class="col-lg-3 col-md-4 col-sm-6 order-lg-1 order-1 mb-lg-0 mb-4">
-            <a class="d-inline-block mb-4" href="index.html">
-              <img src="../assets/img/online-courses/logo-light.svg" width="130" alt="Createx logo">
-            </a>
-            <p class="mb-sm-4 mb-3 pb-lg-3 fs-xs text-light opacity-60">Createx Online School is a leader in online studying. We have lots of courses and programs from the main market experts. We provide relevant approaches to online learning, internships and employment in the largest companies in the country.</p>
-            <a href="#" class="btn-social me-1 mb-2 mt-md-0 mt-sm-1">
-              <i class="ci-facebook"></i>
-            </a>
-            <a href="#" class="btn-social me-1 mb-2 mt-md-0 mt-sm-1">
-              <i class="ci-twitter"></i>
-            </a>
-            <a href="#" class="btn-social me-1 mb-2 mt-md-0 mt-sm-1">
-              <i class="ci-youtube"></i>
-            </a>
-            <a href="#" class="btn-social me-1 mb-2 mt-md-0 mt-sm-1">
-              <i class="ci-telegram"></i>
-            </a>
-            <a href="#" class="btn-social me-1 mb-2 mt-md-0 mt-sm-1">
-              <i class="ci-instagram"></i>
-            </a>
-            <a href="#" class="btn-social mb-1 mt-md-0 mt-sm-1">
-              <i class="ci-linkedin"></i>
-            </a>
-          </div>
-          <div class="col-lg-2 col-sm-12 col-6 order-lg-2 order-sm-4 order-1 mb-lg-0 mb-4">
-            <h3 class="h6 mb-2 pb-1 text-uppercase text-light">Site map</h3>
-            <ul class="nav nav-light flex-lg-column flex-sm-row flex-column">
+      <div class="container pt-3">
+        <div class="row pb-sm-2">
+          <div class="col-6 col-sm-3 col-lg-2 mb-4">
+            <h3 class="h6 mb-2 pb-1 text-uppercase text-light">Help</h3>
+            <ul class="nav nav-light flex-column">
               <li class="nav-item mb-2">
-                <a href="about.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">About Us</a>
+                <a href="#" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Delivery &amp; returns</a>
               </li>
               <li class="nav-item mb-2">
-                <a href="courses.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Courses</a>
+                <a href="contacts.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">FAQ</a>
               </li>
               <li class="nav-item mb-2">
-                <a href="events.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Events</a>
+                <a href="order-tracking.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Track order</a>
               </li>
               <li class="nav-item mb-2">
                 <a href="blog.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Blog</a>
@@ -846,83 +891,97 @@
               </li>
             </ul>
           </div>
-          <div class="col-lg-2 col-sm-12 col-6 order-lg-3 order-sm-5 order-2 mb-lg-0 mb-4">
-            <h3 class="h6 mb-2 pb-1 text-uppercase text-light">Courses</h3>
-            <ul class="nav nav-light flex-lg-column flex-sm-row flex-column">
+          <div class="col-6 col-sm-3 col-lg-2 col-xl-3 mb-4">
+            <h3 class="h6 mb-2 pb-1 text-uppercase text-light ps-xl-6">Shop</h3>
+            <ul class="nav nav-light flex-column ps-xl-6">
               <li class="nav-item mb-2">
-                <a href="courses.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Marketing</a>
+                <a href="#" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">New arrivals</a>
               </li>
               <li class="nav-item mb-2">
-                <a href="courses.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Management</a>
+                <a href="#" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Trending now</a>
               </li>
               <li class="nav-item mb-2">
-                <a href="courses.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">HR &amp; Recruting</a>
+                <a href="#" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Sales</a>
               </li>
               <li class="nav-item mb-2">
-                <a href="courses.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Design</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="courses.html" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Development</a>
+                <a href="#" class="nav-link me-lg-0 me-sm-4 p-0 fw-normal">Brands</a>
               </li>
             </ul>
           </div>
-          <div class="col-lg-2 col-md-4 order-lg-4 order-sm-3 order-3 mb-md-0 mb-4">
-            <h3 class="h6 mb-2 pb-1 text-uppercase text-light">Contact us</h3>
-            <ul class="nav nav-light flex-md-column flex-sm-row flex-column">
-              <li class="nav-item mb-2">
-                <a href="tel:(405)555-0128" class="nav-link me-md-0 me-sm-4 p-0 fw-normal text-nowrap">
-                  <i class="ci-iphone me-2"></i>
-                  (405) 555-0128
-                </a>
+          <div class="col-sm-6 col-lg-3 pb-2 pb-lg-0 mb-4">
+            <h3 class="h6 mb-2 pb-1 text-uppercase text-light">Get in Touch</h3>
+            <ul class="nav nav-light flex-column pb-3">
+              <li class="nav-item text-nowrap mb-2">
+                <span class="text-light me-1">Call:</span>
+                <a href="tel:4055550128" class="nav-link d-inline-block me-lg-0 me-sm-4 p-0 fw-normal">(405) 555-0128</a>
               </li>
-              <li class="nav-item mb-2">
-                <a href="mailto:hello@example.com" class="nav-link me-md-0 me-sm-4 p-0 fw-normal text-nowrap">
-                  <i class="ci-chat me-2"></i>
-                  hello@example.com
-                </a>
+              <li class="nav-item text-nowrap mb-2">
+                <span class="text-light me-1">Email:</span>
+                <a href="mailto:support@example.com" class="nav-link d-inline-block me-lg-0 me-sm-4 p-0 fw-normal">support@example.com</a>
               </li>
             </ul>
+            <a href="#" class="btn-social bs-solid bs-light me-2">
+              <i class="ci-facebook"></i>
+            </a>
+            <a href="#" class="btn-social bs-solid bs-light me-2">
+              <i class="ci-instagram"></i>
+            </a>
+            <a href="#" class="btn-social bs-solid bs-light me-2">
+              <i class="ci-twitter"></i>
+            </a>
+            <a href="#" class="btn-social bs-solid bs-light me-2">
+              <i class="ci-youtube"></i>
+            </a>
+            <a href="#" class="btn-social bs-solid bs-light">
+              <i class="ci-pinterest"></i>
+            </a>
           </div>
-          <div class="col-lg-3 col-md-4 col-sm-6 order-lg-5 order-sm-2 order-4 mb-sm-0 mb-4">
-            <h3 class="h6 mb-2 pb-1 text-uppercase text-light">Sign up to our newsletter</h3>
-            <form>
-              <div class="input-group input-group-light mb-2 pb-1">
-                <input class="form-control pe-5 rounded" type="text" placeholder="Email address*">
-                <i class="ci-arrow-right lead text-light position-absolute top-50 end-0 translate-middle-y mt-n1 me-3 zindex-5"></i>
-              </div>
-              <small class="d-block form-text fs-xxs line-height-base text-light">*Subscribe to our newsletter to receive early discount offers, updates and new products info.</small>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div style="background-color: #292C37;">
-        <div class="container py-2">
-          <div class="d-flex align-items-sm-center justify-content-between py-1">
-            <div class="fs-xs text-light">
-              <span class="d-sm-inline d-block mb-1">
-                <span class="fs-sm">&copy; </span>
-                All rights reserved.
-              </span>
-              Made with 
-              <i class="ci-heart mt-n1 mx-1 fs-base text-primary align-middle"></i>
-              <a href="https://createx.studio/" class="text-light" target="_blank" rel="noopener noreferrer">by Createx Studio</a>
-            </div>
-            <div class="d-flex align-items-sm-center">
-              <span class="d-sm-inline-block d-none text-light fs-sm me-3 mb-1 align-vertical">Back to top</span>
-              <a class="btn-scroll-top position-static rounded" href="#top" data-scroll>
-                <i class="btn-scroll-top-icon ci-angle-up"></i>
+          <div class="col-lg-4 col-xl-3 mb-4">
+            <h3 class="h6 mb-3 pb-1 text-uppercase text-light">Download our App</h3>
+            <div class="d-flex flex-wrap flex-sm-nowrap">
+              <a href="#" class="btn-market btn-apple mb-3 me-3" role="button">
+                <span class="btn-market-subtitle">Download on the</span>
+                <span class="btn-market-title">App Store</span>
+              </a>
+              <a href="#" class="btn-market btn-google mb-3" role="button">
+                <span class="btn-market-subtitle">Download on the</span>
+                <span class="btn-market-title">Google Play</span>
               </a>
             </div>
           </div>
         </div>
       </div>
+      <div class="border-top border-light">
+        <div class="container py-4">
+          <div class="fs-xs text-light">
+            <span class="fs-sm">&copy; </span>
+            All rights reserved. Made with 
+            <i class="ci-heart mt-n1 mx-1 fs-base text-primary align-middle"></i>
+            <a href="https://createx.studio/" class="text-light" target="_blank" rel="noopener noreferrer">by Createx Studio</a>
+          </div>
+        </div>
+      </div>
     </footer>
+
+
+    <!-- Offcanvas mobile toggle btn -->
+    <button class="btn btn-primary btn-sm sidebar-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#blog-sidebar" data-fixed-element>
+      <i class="ci-sidebar-right fs-base me-1 align-middle"></i>
+      Sidebar
+    </button>
+
+
+    <!-- Back to top button-->
+    <a class="btn-scroll-top" href="#top" data-scroll data-fixed-element>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon ci-angle-up"></i>
+    </a>
+
 
     <!-- Vendor scripts: js libraries and plugins-->
     <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-    <script src="../assets/vendor/simplebar/dist/simplebar.min.js"></script>
-    <script src="../assets/vendor/mixitup/dist/mixitup.min.js"></script>
+    <script src="../assets/vendor/tiny-slider/dist/min/tiny-slider.js"></script>
 
     <!-- Main theme script-->
     <script src="../assets/js/theme.min.js"></script>

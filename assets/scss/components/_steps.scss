@@ -44,14 +44,14 @@
     &::before {
       width: ($step-indicator-size * 1.4);
       height: ($step-indicator-size * 1.4);
-      background-color: rgba(var(--#{$prefix}primary-rgb), .12);
+      background-color: rgba($primary, .12);
       transition: transform .3s ease-in-out, opacity .3s ease-in-out;
     }
 
     &::after {
       width: ($step-indicator-size * 1.95);
       height: ($step-indicator-size * 1.95);
-      background-color: rgba(var(--#{$prefix}primary-rgb), .06);
+      background-color: rgba($primary, .06);
       transition: transform .3s ease .1s, opacity .3s ease .1s;
     }
   }
@@ -67,7 +67,7 @@
 
   &:hover {
     .step-indicator {
-      color: var(--#{$prefix}primary);
+      color: $primary;
       &::before,
       &::after {
         transform: translateY(-50%) translateX(-50%) scale(1);
@@ -79,7 +79,7 @@
   @include media-breakpoint-down(sm) {
 
     .step-indicator {
-      color: var(--#{$prefix}primary);
+      color: $primary;
 
       &::before {
         width: ($step-indicator-size * 1.2);

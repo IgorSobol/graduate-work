@@ -1,17 +1,7 @@
 # Get started
 
-*ProgressBar.js* is lightweight, MIT licensed and supports all major browsers including **IE11+** when using a polyfill.
+*ProgressBar.js* is lightweight, MIT licensed and supports all major browsers including **IE9+**.
 See complete examples in [full examples](#full-examples) section.
-
-### IE 11 compatibility
-
-You can include ES6 polyfills by adding to your index.html:
-
-```
-<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-```
-
-See https://github.com/jeremyckahn/shifty#ie-compatibility and https://polyfill.io/v3/url-builder/.
 
 #### {install} Installing
 
@@ -24,8 +14,8 @@ See https://github.com/jeremyckahn/shifty#ie-compatibility and https://polyfill.
 CommonJS
 
 ```javascript
-const ProgressBar = require('progressbar.js')
-const line = new ProgressBar.Line('#container');
+var ProgressBar = require('progressbar.js')
+var line = new ProgressBar.Line('#container');
 ```
 
 AMD

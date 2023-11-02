@@ -6,11 +6,9 @@
 // Horizontal rule
 
 hr {
-  height: $border-width;
   &.hr-light { color: $hr-light-color; }
 
   &.hr-gradient {
-    border: 0;
     color: transparent;
     background: $hr-gradient;
     &.hr-light { opacity: .4; }

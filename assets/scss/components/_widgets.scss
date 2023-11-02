@@ -76,7 +76,7 @@
     border: $range-slider-handle-border;
     @include border-radius(50%);
     @include box-shadow($range-slider-handle-box-shadow);
-    background-color: var(--#{$prefix}primary);
+    background-color: $primary;
     &::before, &::after { display: none; }
     &:focus { outline: none; }
   }

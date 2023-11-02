@@ -69,7 +69,7 @@
 
   &:hover {
     text-decoration: none;
-    .nav-heading { color: var(--#{$prefix}primary); }
+    .nav-heading { color: $primary; }
   }
   .nav-heading { transition: color .25s; }
 }

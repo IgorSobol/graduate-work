@@ -30,7 +30,7 @@
       style: normal;
     }
     &::before { content: $ci-eye; }
-    &:hover { color: var(--#{$prefix}primary); }
+    &:hover { color: $primary; }
   }
 
   .password-toggle-check {

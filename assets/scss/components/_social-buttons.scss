@@ -66,7 +66,7 @@
   &.bs-outline {
     border-color: $btn-social-dark-border-color;
     background-color: transparent;
-    &:hover { border-color: var(--#{$prefix}primary); }
+    &:hover { border-color: $primary; }
 
     &.bs-light {
       border-color: $btn-social-outline-light-border-color;
