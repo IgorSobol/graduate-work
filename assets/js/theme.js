@@ -8,7 +8,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /**
  * Createx | Multipurpose Bootstrap Template
- * Copyright 2021 Createx Studio
+ * Copyright 2023 Createx Studio
  * Theme core scripts
  *
  * @author Createx Studio

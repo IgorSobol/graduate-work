@@ -84,7 +84,7 @@ gulp.task('js:expanded', () => {
         banner: `
         /**
          * Createx | Multipurpose Bootstrap Template
-         * Copyright 2021 Createx Studio
+         * Copyright 2023 Createx Studio
          * Theme core scripts
          *
          * @author Createx Studio
@@ -110,7 +110,7 @@ gulp.task('js:minified', () => {
         banner: `
         /**
          * Createx | Multipurpose Bootstrap Template
-         * Copyright 2021 Createx Studio
+         * Copyright 2023 Createx Studio
          * Theme core scripts
          *
          * @author Createx Studio
