@@ -2,17 +2,17 @@
   "name": "graduate-work",
   "version": "0.1.0",
   "private": true,
+  "homepage": "git@github.com:IgorSobol/graduate-work.git",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "predeploy": "yarn buid",
-    "deploy": "gh-pages -d dist",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "gh-pages": "^6.0.0",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-gh-pages": "^1.19.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.12",
